@@ -83,6 +83,10 @@ public class ReviewService {
             throw new ApiException("review id not found");
         }
 
+        if(!oldReview.getCaseId().equals(oldCase.getId())){
+            throw new ApiException("case id not match ");
+        }
+
         oldReview.setRating(review.getRating());
         oldReview.setComment(review.getComment());
 

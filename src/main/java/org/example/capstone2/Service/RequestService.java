@@ -177,6 +177,10 @@ public class RequestService {
             throw new ApiException("user id do not match");
         }
 
+        if(!request.getStatus().equals("pending")){
+            throw new ApiException("request is not pending ");
+        }
+
         request.setStatus("Cancelled");
         requestRepository.save(request);
 
